@@ -52,6 +52,10 @@ class DatadogMetrics
     @endpoint.count(metric, count, tags: format_tags(tags))
   end
 
+  def timing_with_tags(metric, ms, tags)
+    @endpoint.timing(metric, ms, tags: format_tags(tags))
+  end
+
   def increment_with_tags(metric, tags)
     @endpoint.increment(metric, tags: format_tags(tags))
   end

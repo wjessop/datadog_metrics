@@ -149,4 +149,21 @@ RSpec.describe DatadogMetrics do
       end
     end
   end
+
+  context 'when timing' do
+    let(:dm) { DatadogMetrics.new }
+    let(:statsd) { double('statsd') }
+
+    describe '.timing_with_tags' do
+      it 'calls endpoint.timing with tags' do
+        allow(dm.endpoint).to receive(:timing) { statsd }
+        expect(dm.endpoint).to(receive(:timing).with(
+          'some.test.metric',
+          42,
+          :tags => ['sometag']
+        )).once
+        dm.timing_with_tags('some.test.metric', 42, ['sometag'])
+      end
+    end
+  end
 end
