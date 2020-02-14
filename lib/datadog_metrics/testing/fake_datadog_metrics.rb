@@ -28,6 +28,10 @@ class FakeDatadogMetrics
     metrics << [:guage, *arguments]
   end
 
+  def timing(*arguments)
+    metrics << [:timing, *arguments]
+  end
+
   def timing_with_tags(*arguments)
     metrics << [:timing, *arguments]
   end
