@@ -1,6 +1,10 @@
+# 1.1.1
+
+Add missing testing helper for timing_with_tags method
+
 # 1.1.0
 
-Add ting_with_tags method
+Add timing_with_tags method
 
 # 1.0.0
 
